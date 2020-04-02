@@ -1,0 +1,488 @@
+.App {
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.home {
+  text-align: center;
+  background-color: white;
+  width: 800px;
+  padding: 15px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.introContainer{
+  padding-bottom: 200px;
+  margin-left: 400px;
+  margin-right: 60px;
+  margin-top: 100px;
+}
+
+.intro{
+  float: right;
+  text-align: left;
+}
+
+.signature{
+  font-family: 'Tangerine', sans-serif;
+  margin-top: 30px;
+  font-size: 65px;
+  text-align: right;
+}
+
+.logo {
+  height: 200px;
+  margin-top: 175px;
+  margin-left: 20px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.dozen {
+  padding-left: 5px;
+  display: inline-block;
+}
+
+.toppingContainer{
+  height: 70px;
+}
+
+.inputboxes{
+  margin-bottom: 15px;
+}
+
+input[type=text] {
+  padding:5px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type=password] {
+  padding:5px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type=text]:focus {
+  border-color:#333;
+}
+
+input[type=number] {
+  text-align: right;
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.orderButton {
+  padding:10px 25px;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  background-color: #e96fab;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+}
+
+.orderButton:hover{
+  background-color: #CA6094;
+}
+
+.orderSpace {
+  padding-top: 5px;
+}
+
+.deleteButton {
+  padding:10px 25px;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #8fd0ed;
+  color: white;
+  border:0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.deleteButton:hover {
+  background-color: #7DB1C8;
+}
+
+.toolbarlist {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  background-color: #eee8e8;
+}
+
+.customBarlist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #eee8e8;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.items {
+  float:left;
+  display: block;
+  text-align: center;
+  padding: 14px 20px;
+  font-weight:bold;
+  color: #777474;
+  border-bottom: 2px solid #eee8e8;
+}
+
+.cupcakeIcon {
+  float:left;
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.items:hover{
+  color: #e96fab;
+  border-bottom: 2px solid pink;
+  font-weight: normal;
+}
+
+.scratchButton{
+  position: relative;
+  left: -20px;
+  z-index: 1;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.prevCupcakes{
+  display: inline-block;
+  text-align: center;
+  padding: 14px 20px;
+  color: white;
+}
+
+.prevCupcakeHolder{
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  text-align: center;
+  top: -40px;
+}
+
+.prevToppings{
+  position: relative;
+  z-index: 4;
+  top: 50px;
+  height: 30px;
+}
+
+.prevFrosting{
+  position: relative;
+  z-index: 3;
+  top: 30px;
+  height: 50px;
+}
+
+.prevBase{
+  position: relative;
+  z-index: 2;
+}
+
+.whiteLinks{
+  text-decoration: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 15px;
+  color: inherit;
+}
+
+.whiteLinks:hover {
+  color: #e96fab;
+}
+
+.links{
+  text-decoration: none;
+  color: black;
+}
+
+.links:hover{
+  background-color: #D3D3D3;
+}
+
+.linklist{
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.customizeButtons{
+  font-family: 'Roboto Condensed', sans-serif;
+  padding: 0;
+}
+
+.toppingContainers{
+  display: block;
+  text-align: center;
+}
+
+.toppingButtons{
+  padding: 15px;
+}
+
+.btn-group {
+  position: relative;
+  z-index: 1;
+  top: -30px;
+}
+
+.btn-group button {
+  text-align: center;
+  background-color: #e96fab;
+  color: white; 
+  padding: 10px; 
+  cursor: pointer;
+  font-family: 'Roboto Condensed', sans-serif;
+  width: 80px;
+  margin-right: 15px;  
+  border-radius: 10px;
+  border:0 none;
+}
+
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; 
+}
+
+.btn-group button:hover {
+  background-color: #CA6094;
+}
+
+.label {
+  margin-right: 15px;
+}
+
+.errorBox{
+  border-radius: 25px;
+  background: #FF4500;
+  padding: 2px;
+  margin-bottom: 20px; 
+}
+
+.drag{
+  display: inline-block;
+}
+
+.floatSide{
+  display: block;
+  vertical-align: middle;
+}
+
+.tab{
+  height: 425px;
+}
+
+.sidebar{
+  display: table;
+  float: left;
+  box-shadow: 2px 5px 5px grey;
+  border-radius: 15px;
+}
+
+.cupcakeButtonContainer{
+  padding-right: 10px;
+}
+
+.cupcakeButton{
+  float: right;
+  font-family: 'Roboto Condensed', sans-serif;
+  padding:10px 25px; 
+  color: white;
+  background-color: #e96fab; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  position: relative;
+  top: 20px;
+  z-index: 1;
+  display: inline-block;
+  text-align: center;
+}
+
+.cupcakeButton:hover{
+  background-color: #CA6094;
+
+}
+
+.cupcakeOrderButton{
+  float: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  padding:10px 25px; 
+  color: white;
+  background-color: #e96fab; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+}
+
+.cupcakeOrderButton:hover{
+  background-color: #CA6094;
+}
+
+.cupcakeDisplay{
+  position: relative;
+  top: -35px;
+}
+
+.topping{
+  position: relative;
+  z-index: 3;
+  top: 100px;
+}
+
+.frosting{
+  position: relative;
+  z-index: 2;
+  top: 50px;
+}
+
+.base{
+  position: relative;
+  z-index: 1;
+}
+
+ul{
+  list-style-type: none;
+}
+
+hr.break {
+  border-top: 3px double #8c8b8b;
+}
+
+.customToolTip{
+  position: relative;
+  display: inline-block;
+}
+
+.customToolTip .toolTipTextBase {
+  visibility: hidden;
+  width: 130px;
+  background-color: #8fd0ed;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.customToolTip:hover .toolTipTextBase {
+  visibility: visible;
+}
+
+.customToolTip .toolTipTextFrosting {
+  visibility: hidden;
+  width: 120px;
+  background-color: #8fd0ed;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.customToolTip:hover .toolTipTextFrosting {
+  visibility: visible;
+}
+
+.customToolTip .toolTipTextTopping {
+  visibility: hidden;
+  margin-left: px;
+  width: 75px;
+  background-color: #8fd0ed;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.customToolTip:hover .toolTipTextTopping {
+  visibility: visible;
+}
+
+.customToolTip .toolTipTextSprinkles {
+  visibility: hidden;
+  margin-left: 5px;
+  width: 95px;
+  background-color: #8fd0ed;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  font-size: 14px;
+}
+
+.customToolTip:hover .toolTipTextSprinkles {
+  visibility: visible;
+}
+
+.customToolTip .toolTipTextPrevCupcakes {
+  visibility: hidden;
+  margin-left: 5px;
+  width: 95px;
+  background-color: #8fd0ed;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  font-size: 14px;
+}
+
+.customToolTip:hover .toolTipTextPrevCupcakes {
+  visibility: visible;
+}
+
+.bottomBar{
+  position: relative;
+  z-index: 1;
+  top: -235px;
+  width: 100%;
+}
+
+.window{
+  max-height: 100vh;
+  width: inherit;
+  height: inherit;
+}
+
+.banner{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
