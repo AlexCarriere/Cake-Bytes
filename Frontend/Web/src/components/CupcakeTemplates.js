@@ -19,18 +19,19 @@ class CupcakeTemplates extends React.Component {
 	// Set the state for the inital component load, fill the list of orders with all of the orders a user has placed
 	componentWillMount(){
 		var self = this;
-		
-		if(localStorage.getItem('login')){
-			API.getUsersOrders(localStorage.getItem('login'), localStorage.getItem('token')).then(orders => {
-				orders.map((order) => {
-					var newOrders = self.state.orders.slice();
-					newOrders.push(order);
+		var newOrders = self.state.orders.slice();
 
-					self.setState({
-						orders: newOrders
-					});
-				}); 
-			})
+		if(localStorage.getItem('login')){
+			var orders = API.getUsersOrders(localStorage.getItem('login'), localStorage.getItem('token'));
+			
+			orders.map((order) => {
+				newOrders.push(order);
+
+				self.setState({
+					orders: newOrders
+				});
+			}); 
+
 		}
 	}
 
@@ -123,15 +124,15 @@ class CupcakeTemplates extends React.Component {
 							this.state.orders.map(order => {
 								var topping;
 
-								if(order.detail.deco != "none"){
-									topping = ( <img className="prevToppings" src={Translator.getToppingImg(order.detail.deco)} alt="topping" height="60"/> );
+								if(order.detail.topping != "none"){
+									topping = ( <img className="prevToppings" src={Translator.getToppingImg(order.detail.topping)} alt="topping" height="60"/> );
 								}
 								return(
 									<li className="prevCupcakes" key={order.order_id}>
 										<div className="prevCupcakeHolder">
-											<Link to={{ pathname: '/cupcakesMaker', state: { topping: Translator.getToppingImg(order.detail.deco), frosting: Translator.getFrostingImg(order.detail.icing), base: Translator.getBaseImg(order.detail.base) }}}>
+											<Link to={{ pathname: '/cupcakesMaker', state: { topping: Translator.getToppingImg(order.detail.topping), frosting: Translator.getFrostingImg(order.detail.frosting), base: Translator.getBaseImg(order.detail.base) }}}>
 												{topping}<br/>
-												<img className="prevFrosting" src={Translator.getFrostingImg(order.detail.icing)} alt="topping" height="60"/><br/>
+												<img className="prevFrosting" src={Translator.getFrostingImg(order.detail.frosting)} alt="topping" height="60"/><br/>
 												<img className="prevBase" src={Translator.getBaseImg(order.detail.base)} alt="topping" height="60"/>
 											</Link>
 										</div>

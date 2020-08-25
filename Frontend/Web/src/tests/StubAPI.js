@@ -5,14 +5,14 @@ const stubAPI = {
 		{username: "test", password: "1234"}
 	],
 	orders: [
-		{order_id: 7534, first_name: "Alex", last_name: "Carriere", amount: 2, user: "carrie", detail: {deco: "cherry", icing: "vanilla", base:"chocolate"}},
-		{order_id: 8453, first_name: "Faye", last_name: "Lim", amount: 3, user: "carrie", detail: {deco: "orange", icing: "chocolate", base:"chocolate"}},
-		{order_id: 8623, first_name: "KJ", last_name: "Choi", amount: 1, user: "carrie", detail: {deco: "rainbow_sprinkles", icing: "vanilla", base:"chocolate"}},
-		{order_id: 7562, first_name: "Jagan", last_name: "Brar", amount: 4, user: "admin", detail: {deco: "cherry", icing: "vanilla", base:"vanilla"}}, 
-		{order_id: 4532, first_name: "Francis", last_name: "Okoro", amount: 2, user: "admin", detail: {deco: "orange", icing: "vanilla", base:"chocolate"}},
-		{order_id: 8875, first_name: "Sophie", last_name: "Yang", amount: 3, user: "admin", detail: {deco: "rainbow_sprinkles", icing: "chocolate", base:"vanilla"}},
-		{order_id: 1, first_name: "test", last_name: "test", amount: 1, user: "test", detail: {deco: "rainbow_sprinkles", icing: "chocolate", base:"vanilla"}},
-		{order_id: 2, first_name: "test", last_name: "test", amount: 1, user: "test", detail: {deco: "rainbow_sprinkles", icing: "chocolate", base:"vanilla"}}
+		{order_id: 7534, first_name: "Alex", last_name: "Carriere", amount: 2, user: "carrie", detail: {topping: "cherry", frosting: "vanilla", base:"chocolate"}},
+		{order_id: 8453, first_name: "Faye", last_name: "Lim", amount: 3, user: "carrie", detail: {topping: "orange", frosting: "chocolate", base:"chocolate"}},
+		{order_id: 8623, first_name: "KJ", last_name: "Choi", amount: 1, user: "carrie", detail: {topping: "rainbow_sprinkles", frosting: "vanilla", base:"chocolate"}},
+		{order_id: 7562, first_name: "Jagan", last_name: "Brar", amount: 4, user: "admin", detail: {topping: "cherry", frosting: "vanilla", base:"vanilla"}}, 
+		{order_id: 4532, first_name: "Francis", last_name: "Okoro", amount: 2, user: "admin", detail: {topping: "orange", frosting: "vanilla", base:"chocolate"}},
+		{order_id: 8875, first_name: "Sophie", last_name: "Yang", amount: 3, user: "admin", detail: {topping: "rainbow_sprinkles", frosting: "chocolate", base:"vanilla"}},
+		{order_id: 1, first_name: "test", last_name: "test", amount: 1, user: "test", detail: {topping: "rainbow_sprinkles", frosting: "chocolate", base:"vanilla"}},
+		{order_id: 2, first_name: "test", last_name: "test", amount: 1, user: "test", detail: {topping: "rainbow_sprinkles", frosting: "chocolate", base:"vanilla"}}
 	],
 
 	login: function(user){
@@ -56,7 +56,7 @@ const stubAPI = {
 		var success = false;
 		var userFound = false;
 
-		if(token === "token"){
+		if(token == "token"){
 			for(var i = 0; i < this.users.length; i ++){
 				var currUser = this.users[i];
 				
@@ -78,18 +78,20 @@ const stubAPI = {
 					detail: order.cupcake
 				}
 			
+				console.log(order.cupcake)
 				this.orders.push(newOrder);
 				success = true;
 			}
 		}
 
+		console.log(success);
 		return success;
 	},
 
 	getUsersOrders: function(username, token){
 		var userOrders = [];
 
-		if(token === "token"){
+		if(token == "token"){
 			for(var i = 0; i < this.orders.length; i ++){
 				var currOrder = this.orders[i];
 				
@@ -98,7 +100,7 @@ const stubAPI = {
 				}
 			}
 		}
-		
+
 		return userOrders;
 	},
 
@@ -175,6 +177,7 @@ const stubAPI = {
 	        "order_id": order.order_id,
 	        "first_name": order.first_name,
 	        "last_name": order.last_name,
+	        "user": username,
 	        "detail": order.detail,
 	        "amount": order.amount,
 	        "timestamp": order.timestamp,
@@ -201,6 +204,7 @@ const stubAPI = {
 			}
 		}
 
+		console.log(this.orders)
 		return updated;
 	}
 }

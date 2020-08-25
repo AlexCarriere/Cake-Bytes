@@ -1,4 +1,4 @@
-import DBAPI from '../data/dbAPI';
+import DBAPI from '../tests/StubAPI';
 
 const API = {
 	api: DBAPI,

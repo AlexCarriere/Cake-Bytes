@@ -16,18 +16,18 @@ class OrderHistory extends React.Component {
 	// set the inital state by getting the orders placed by the user logged in
 	componentWillMount(){
 		var self = this;
+		var newOrders = self.state.orders.slice();
     
 		if(localStorage.getItem('login')){
-			API.getUsersOrders(localStorage.getItem('login'), localStorage.getItem('token')).then(orders => {
-				orders.map((order) => {
-					var newOrders = self.state.orders.slice();
-					newOrders.push(order);
+			var orders = API.getUsersOrders(localStorage.getItem('login'), localStorage.getItem('token'));
+			orders.map((order) => {
+				console.log("here")
+				newOrders.push(order);
 
-					self.setState({
-						orders: newOrders
-					});
-				}); 
-			})
+				self.setState({
+					orders: newOrders
+				});
+			}); 
 		}
 	}
 
@@ -50,6 +50,8 @@ class OrderHistory extends React.Component {
 	render() {
 		const message  = this.requireAuth();
 		var page = undefined;
+
+		console.log(this.state.orders)
 
 		if(!message){
 			page = (

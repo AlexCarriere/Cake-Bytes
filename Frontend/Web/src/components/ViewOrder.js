@@ -21,9 +21,9 @@ class ViewOrder extends React.Component {
 		
 		if(self.props.match){
 			if(!this.state.deleted){
-				API.getOrderByID(localStorage.getItem('login'), this.props.match.params.number, localStorage.getItem('token')).then(newOrder => {
-					self.setState({order: newOrder});
-				}); 
+				var newOrder = API.getOrderByID(localStorage.getItem('login'), this.props.match.params.number, localStorage.getItem('token'))
+				
+				self.setState({order: newOrder});
 			}
 		}
 	
@@ -44,10 +44,10 @@ class ViewOrder extends React.Component {
 			message = <h2>Sorry, but no order was found</h2>
 		}
 		else{
-			if(this.state.order.detail.deco !== "none"){
-				topping = (<img className="topping" src={Translator.getToppingImg(this.state.order.detail.deco)} alt="topping" height="60"/>);
+			if(this.state.order.detail.topping !== "none"){
+				topping = (<img className="topping" src={Translator.getToppingImg(this.state.order.detail.topping)} alt="topping" height="60"/>);
 			}
-			frosting = ( <img className="frosting" src={Translator.getFrostingImg(this.state.order.detail.icing)} alt="frosting" width="150" height="125"/> );
+			frosting = ( <img className="frosting" src={Translator.getFrostingImg(this.state.order.detail.frosting)} alt="frosting" width="150" height="125"/> );
 			base = ( <img className="base" src={Translator.getBaseImg(this.state.order.detail.base)} alt="cupcake base" width="150" height="125"/>);
 
 			message = (

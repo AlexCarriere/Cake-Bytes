@@ -28,13 +28,13 @@ class Order extends React.Component {
 	// Set the inital state, which is if there is an order number being passed to it, load that order for editing
 	componentDidMount(){
 		var self = this;
+		var newOrder = API.getOrderByID(localStorage.getItem('login'), this.props.match.params.number, localStorage.getItem('token'))
 
 		if(localStorage.getItem('login')){
 			if(!this.state.orderComplete){
 				if(!this.props.location.state){
-					API.getOrderByID(localStorage.getItem('login'), this.props.match.params.number, localStorage.getItem('token')).then(newOrder => {
-						self.setState({order: newOrder, firstName: newOrder.first_name, lastName:newOrder.last_name, amount: newOrder.amount});
-					}); 
+
+					self.setState({order: newOrder, firstName: newOrder.first_name, lastName:newOrder.last_name, amount: newOrder.amount});
 				}
 			}
 		}
@@ -121,8 +121,8 @@ class Order extends React.Component {
 			// if there is no order set in the state it means we are creating a new order and not editing, so load the new order
 			if(this.state.order != undefined){
 				// Get the cupcake details passed to it from the cupcake maker component, and load them onto the page
-				const cupTopping = Translator.getToppingImg(this.state.order.detail.deco);
-				const cupFrosting = Translator.getFrostingImg(this.state.order.detail.icing);
+				const cupTopping = Translator.getToppingImg(this.state.order.detail.topping);
+				const cupFrosting = Translator.getFrostingImg(this.state.order.detail.frosting);
 				const cupBase = Translator.getBaseImg(this.state.order.detail.base);
 				
 				if(cupTopping != "none"){
